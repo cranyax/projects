@@ -1,5 +1,7 @@
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "randooom";
+
+const JWT_SECRET = (process.env.JWT_SECRET)
 
 function auth(req, res, next) {
     const token = req.headers.authorization;

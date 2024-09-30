@@ -5,8 +5,10 @@ const ObjectId = Schema.ObjectId;
 
 const User = new Schema({
   name: String,
-  email: {type: String, unique: true},
-  password: {type: String, required: true},
+  email: {type: String, 
+    unique: true},
+  password: {type: String, 
+    required: true},
   createdAt: {
     type: Date,
     default: Date.now
@@ -15,7 +17,8 @@ const User = new Schema({
 
 const Todo = new Schema({
     userId: ObjectId,
-    title: String,
+    title: {type: String, 
+      required: true},
     done: Boolean,
     createdAt: {
       type: Date,
