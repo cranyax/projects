@@ -1,24 +1,20 @@
-require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const { JWT_ADMIN_SECRET } = require("../config");
 
-const JWT_SECRET = (process.env.JWT_SECRET)
+function adminMiddleware(req, res, next) {
+    const token = req.headers.token;
+    const decoded = jwt.verify(token, JWT_ADMIN_SECRET);
 
-function auth(req, res, next) {
-    const token = req.headers.authorization;
-
-    const response = jwt.verify(token, JWT_ADMIN_SECRET);
-
-    if (response) {
-        req.userId = response.id;
-        next();
+    if (decoded) {
+        req.userId = decoded.id;
+        next()
     } else {
         res.status(403).json({
-            message: "Incorrect credentials"
+            message: "You are not signed in"
         })
     }
 }
 
 module.exports = {
-    auth,
-    JWT_ADMIN_SECRET
+    adminMiddleware: adminMiddleware
 }
