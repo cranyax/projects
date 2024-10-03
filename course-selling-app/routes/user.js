@@ -1,17 +1,21 @@
 const { Router } = require("express");
 const { userMiddleware } = require("../middlewares/user");
+const { userModel, courseModel, purchaseModel } = require("../db");
 const { JWT_USER_SECRET, saltRounds } = require("../config");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { z } = require("zod");
 
 const userRouter = Router();
 
 userRouter.post("/signup", async (req, res) => {
-    try {
+    // try {
         const requiredBody = z.object({
             email: z.string().min(3).max(100).email(),
             firstName: z.string().min(3).max(100),
             lastName: z.string().min(3).max(100),
-            password:string().min(8).max(30).regex(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)()/,
+            password:z.string().min(8).max(30).regex(
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)/,
                 "Password must contain 1 Uppercase letter, 1 Lowercase letter, 1 Number, and 1 Special Character"
             )
         })
@@ -39,17 +43,17 @@ userRouter.post("/signup", async (req, res) => {
             message: "Signup successful"
         })
 
-    } catch (error) {
-        res.status(500).json({
-            message: "Error while signing up"
-        })
-    }
+    // } catch (error) {
+    //     res.status(500).json({
+    //         message: "Error while signing up"
+    //     })
+    // }
 })
 
 userRouter.post("/signin", async (req, res) => {
     const { email, password } = req.body;
 
-    const user = await UserModel.findOne({
+    const user = await userModel.findOne({
         email: email
     });
 
@@ -69,8 +73,22 @@ userRouter.post("/signin", async (req, res) => {
     }
 })
 
-userRouter.post("/purchases", userMiddleware, (req, res) => {
+userRouter.get("/purchases", userMiddleware, async (req, res) => {
     
+    const userId = req.userId;
+
+    const purchases = await purchaseModel.find({
+        userId,
+    });
+
+    const coursesData = await courseModel.find({
+        _id: {$in: purchases.map(x => x.courseId)}
+    })
+
+    res.json({
+        purchases,
+        coursesData
+    })
 })
 
 

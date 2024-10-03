@@ -1,6 +1,6 @@
 const JWT_USER_SECRET = process.env.JWT_USER_SECRET
 const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET;
-const saltRounds = process.env.saltRounds;
+const saltRounds = 10;
 
 module.exports = {
     JWT_ADMIN_SECRET,
