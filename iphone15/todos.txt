@@ -1,0 +1,6 @@
+- vite react+js
+- tailwindcss
+- Snippets -> tailwind.config.js colors, index.css 
+- setup file and folder structure -> utils, public, constants & delete assets
+- setup linitng ESLint & Prettier
+- 2:55:00 min se performance
