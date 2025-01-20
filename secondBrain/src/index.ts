@@ -1,5 +1,4 @@
 import express from "express";
-import { Random } from "random";
 import jwt from "jsonwebtoken";
 import { ContentModel, LinkModel, UserModel } from "./db";
 import { JWT_SECRET } from "./config"
@@ -61,7 +60,7 @@ app.post("/api/v1/content", userMiddleware, async (req, res) => {
 
 // Route 4: Get User Content
 app.get("/api/v1/content", userMiddleware, async (req, res) => {
-    //@ts-ignore
+    
     const userId = req.userId;  // User ID is fetched from middleware
     // Fetch all content associated with the user ID and populate username
     // The `populate` function is used to include additional details from the referenced `userId`.
@@ -83,24 +82,24 @@ app.delete("/api/v1/content", userMiddleware, async (req, res) => {
 
 // Route 6: Share Content Link
 app.post("/api/v1/brain/share", userMiddleware, async (req, res) => {
-    const { share } = req.body;
-    if (share) {
-        // Check if a link already exists for the user.
-        const existingLink = await LinkModel.findOne({ userId: req.userId });
-        if (existingLink) {
-            res.json({ hash: existingLink.hash }); // Send existing hash if found.
-            return;
-        }
+    // const { share } = req.body;
+    // if (share) {
+    //     // Check if a link already exists for the user.
+    //     const existingLink = await LinkModel.findOne({ userId: req.userId });
+    //     if (existingLink) {
+    //         res.json({ hash: existingLink.hash }); // Send existing hash if found.
+    //         return;
+    //     }
 
-        // Generate a new hash for the shareable link.
-        const hash = random(10);
-        await LinkModel.create({ userId: req.userId, hash });
-        res.json({ hash }); // Send new hash in the response.
-    } else {
-        // Remove the shareable link if share is false.
-        await LinkModel.deleteOne({ userId: req.userId });
-        res.json({ message: "Removed link" }); // Send success response.
-    }
+    //     // Generate a new hash for the shareable link.
+    //     const hash = random(10);
+    //     await LinkModel.create({ userId: req.userId, hash });
+    //     res.json({ hash }); // Send new hash in the response.
+    // } else {
+    //     // Remove the shareable link if share is false.
+    //     await LinkModel.deleteOne({ userId: req.userId });
+    //     res.json({ message: "Removed link" }); // Send success response.
+    // }
 });
 
 // Route 7: Get Shared Content

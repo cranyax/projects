@@ -29,11 +29,10 @@ adminRouter.post("/signup", async (req, res) => {
         return
         }
 
-    // try {
+    try {
         const { email, password, firstName, lastName } = req.body;
 
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-        console.log(email, password, hashedPassword, firstName, lastName);
         
         await adminModel.create({
             email: email,
@@ -46,12 +45,12 @@ adminRouter.post("/signup", async (req, res) => {
             message: "Signup successful"
         })
 
-    // } catch (error) {
-    //     res.status(500).json({
-    //         message: "Error while signing up", 
-    //         error: error.message
-    //     })
-    // }
+    } catch (error) {
+        res.status(500).json({
+            message: "Error while signing up", 
+            error: error.message
+        })
+    }
 })
 
 adminRouter.post("/signin", async (req, res) => {

@@ -44,27 +44,32 @@ import {
     },
     {
       id: "1",
-      title: "Pricing",
+      title: "About Us",
       url: "#pricing",
     },
     {
       id: "2",
-      title: "How to use",
+      title: "Careers",
       url: "#how-to-use",
     },
     {
       id: "3",
-      title: "Roadmap",
+      title: "Contact Us",
       url: "#roadmap",
     },
     {
       id: "4",
+      title: "LinkedIn",
+      url: "#roadmap",
+    },
+    {
+      id: "5",
       title: "New account",
       url: "#signup",
       onlyMobile: true,
     },
     {
-      id: "5",
+      id: "6",
       title: "Sign in",
       url: "#login",
       onlyMobile: true,

@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const utils_1 = require("./utils");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const db_1 = require("./db");
 const config_1 = require("./config");
@@ -88,24 +87,23 @@ app.delete("/api/v1/content", middleware_1.userMiddleware, (req, res) => __await
 }));
 // Route 6: Share Content Link
 app.post("/api/v1/brain/share", middleware_1.userMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { share } = req.body;
-    if (share) {
-        // Check if a link already exists for the user.
-        const existingLink = yield db_1.LinkModel.findOne({ userId: req.userId });
-        if (existingLink) {
-            res.json({ hash: existingLink.hash }); // Send existing hash if found.
-            return;
-        }
-        // Generate a new hash for the shareable link.
-        const hash = (0, utils_1.random)(10);
-        yield db_1.LinkModel.create({ userId: req.userId, hash });
-        res.json({ hash }); // Send new hash in the response.
-    }
-    else {
-        // Remove the shareable link if share is false.
-        yield db_1.LinkModel.deleteOne({ userId: req.userId });
-        res.json({ message: "Removed link" }); // Send success response.
-    }
+    // const { share } = req.body;
+    // if (share) {
+    //     // Check if a link already exists for the user.
+    //     const existingLink = await LinkModel.findOne({ userId: req.userId });
+    //     if (existingLink) {
+    //         res.json({ hash: existingLink.hash }); // Send existing hash if found.
+    //         return;
+    //     }
+    //     // Generate a new hash for the shareable link.
+    //     const hash = random(10);
+    //     await LinkModel.create({ userId: req.userId, hash });
+    //     res.json({ hash }); // Send new hash in the response.
+    // } else {
+    //     // Remove the shareable link if share is false.
+    //     await LinkModel.deleteOne({ userId: req.userId });
+    //     res.json({ message: "Removed link" }); // Send success response.
+    // }
 }));
 // Route 7: Get Shared Content
 app.get("/api/v1/brain/:shareLink", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

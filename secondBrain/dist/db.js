@@ -37,7 +37,7 @@ exports.LinkModel = exports.ContentModel = exports.UserModel = void 0;
 // Importing the required modules and functions from Mongoose
 const mongoose_1 = __importStar(require("mongoose"));
 // Connecting to the MongoDB database using a connection string
-mongoose_1.default.connect("Your Connection String");
+mongoose_1.default.connect("mongodb+srv://abhishek:Abhishek@cluster0.trjce.mongodb.net/secondBrain");
 // Defining a schema for the 'User' collection
 // Each user will have a unique 'username' and a 'password'
 const UserSchema = new mongoose_1.Schema({

@@ -2,7 +2,7 @@
 import mongoose, { model, Schema } from "mongoose";
 
 // Connecting to the MongoDB database using a connection string
-mongoose.connect("Your Connection String");
+mongoose.connect("mongodb+srv://abhishek:Abhishek@cluster0.trjce.mongodb.net/secondBrain");
 
 // Defining a schema for the 'User' collection
 // Each user will have a unique 'username' and a 'password'

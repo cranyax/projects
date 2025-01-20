@@ -1,0 +1,29 @@
+.email-builder {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel {
+  flex: 2;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.right-panel {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-left: 2px solid #ddd;
+}
+
+.email-preview {
+  padding: 20px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+input, button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}

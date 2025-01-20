@@ -9,7 +9,7 @@ const { z } = require("zod");
 const userRouter = Router();
 
 userRouter.post("/signup", async (req, res) => {
-    // try {
+    try {
         const requiredBody = z.object({
             email: z.string().min(3).max(100).email(),
             firstName: z.string().min(3).max(100),
@@ -43,11 +43,11 @@ userRouter.post("/signup", async (req, res) => {
             message: "Signup successful"
         })
 
-    // } catch (error) {
-    //     res.status(500).json({
-    //         message: "Error while signing up"
-    //     })
-    // }
+    } catch (error) {
+        res.status(500).json({
+            message: "Error while signing up"
+        })
+    }
 })
 
 userRouter.post("/signin", async (req, res) => {

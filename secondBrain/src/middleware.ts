@@ -1,7 +1,6 @@
 // Importing required types and modules from "express" and "jsonwebtoken".
 import { NextFunction, Request, Response } from "express";
-import { config } from "dotenv";
-config();
+import { JWT_SECRET } from "./config";
 import jwt from "jsonwebtoken"; // Importing the jsonwebtoken library for token verification.
 
 // Middleware to validate user authentication using a JWT token.
@@ -10,7 +9,7 @@ export const userMiddleware = async (req: Request, res: Response, next: NextFunc
     const header = req.headers["authorization"];
     
     // Verify the JWT token using the secret key.
-    const decoded = jwt.verify(header as string, process.env.JWT_SECRET as string);
+    const decoded = jwt.verify(header as string, JWT_SECRET as string);
 
     // If the token is successfully decoded, attach the user ID to the request object.
     if (decoded) {

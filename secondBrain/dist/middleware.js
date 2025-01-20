@@ -13,15 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userMiddleware = void 0;
-const dotenv_1 = require("dotenv");
-(0, dotenv_1.config)();
+const config_1 = require("./config");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken")); // Importing the jsonwebtoken library for token verification.
 // Middleware to validate user authentication using a JWT token.
 const userMiddleware = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     // Extract the "authorization" header from the request.
     const header = req.headers["authorization"];
     // Verify the JWT token using the secret key.
-    const decoded = jsonwebtoken_1.default.verify(header, process.env.JWT_SECRET);
+    const decoded = jsonwebtoken_1.default.verify(header, config_1.JWT_SECRET);
     // If the token is successfully decoded, attach the user ID to the request object.
     if (decoded) {
         // @ts-ignore
