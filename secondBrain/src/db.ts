@@ -1,8 +1,13 @@
 // Importing the required modules and functions from Mongoose
 import mongoose, { model, Schema } from "mongoose";
 
+import dotenv from "dotenv";
+dotenv.config({
+    path: ".env"
+});
+
 // Connecting to the MongoDB database using a connection string
-mongoose.connect("mongodb+srv://abhishek:Abhishek@cluster0.trjce.mongodb.net/secondBrain");
+mongoose.connect(`${process.env.MONGODB_URI}`);
 
 // Defining a schema for the 'User' collection
 // Each user will have a unique 'username' and a 'password'
