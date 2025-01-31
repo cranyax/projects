@@ -15,27 +15,6 @@ This is a full-stack quiz game built with a **React frontend** and an **Express 
 
 ---
 
-## Folder Structure
-
-/quiz-app
-├── /backend 
-│ ├── server.js # Express server handling quiz data API 
-│ └── /node_modules # Backend dependencies 
-│ ├── package.json # Backend dependencies and scripts 
-├── /frontend 
-│ ├── /public # Static files (e.g., images, icons) 
-│ ├── /src 
-│ │ ├── /components # Reusable components like QuizCard 
-│ │ │ └── QuizCard.jsx # The QuizCard component managing the quiz UI and logic 
-│ │ ├── /services # API calls and other service-related files 
-│ │ │ └── api.js # API service to interact with the backend (fetch quiz data)
-│ │ ├── index.css # Base styles for the app 
-│ │ ├── App.jsx # Main component for the app 
-│ │ └── index.js # Entry point of the app (renders App component)  
-│ ├── /node_modules # Frontend dependencies 
-│ ├── package.json # Frontend dependencies and scripts 
-└── README.md # Project overview, instructions, and documentation
-
 ## Setup Instructions
 
 ### 1. Clone the repository
