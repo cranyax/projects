@@ -13,6 +13,10 @@ This is a full-stack quiz game built with a **React frontend** and an **Express 
 - **Smooth animations** using `framer-motion` for transitions and button animations.
 - **Backend API** that fetches quiz data from an external source.
 
+![Home](frontend/public/img1.png)
+<video src="frontend/public/workingVid.mp4" width="320" height="240" controls></video>
+
+
 ---
 
 ## Setup Instructions
@@ -42,7 +46,7 @@ cd quiz-app
 ```
 
 - The backend will now be running on http://localhost:5000.
-
+![Backend running on port 5000](frontend/public/img2.png)
 
 ### 3. Setting up the Frontend
 
@@ -62,6 +66,7 @@ cd quiz-app
 ```
 
 - The frontend will now be running on http://localhost:3000.
+![Frontend running on port 3000](frontend/public/img3.png)
 
 
 ### 4. Access the Application
