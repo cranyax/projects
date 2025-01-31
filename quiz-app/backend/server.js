@@ -1,6 +1,6 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
+import express from "express";
+import axios from "axios";
+import cors from "cors";
 
 const app = express();
 app.use(cors()); // Enable CORS
@@ -16,7 +16,7 @@ app.get("/api/quiz", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = 5000; // Put this .env in production
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });

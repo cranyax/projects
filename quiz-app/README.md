@@ -14,7 +14,7 @@ This is a full-stack quiz game built with a **React frontend** and an **Express 
 - **Backend API** that fetches quiz data from an external source.
 
 ![Home](frontend/public/img1.png)
-<video src="frontend/public/workingVid.mp4" width="320" height="240" controls></video>
+![Working](https://github.com/user-attachments/assets/c91ee04d-6745-49f0-b5cc-637233ef0a8c)
 
 
 ---
@@ -42,7 +42,7 @@ cd quiz-app
 
 - Start the backend server.
 ```bash
- node server.js
+ npm start
 ```
 
 - The backend will now be running on http://localhost:5000.
