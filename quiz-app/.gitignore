@@ -1,0 +1,13 @@
+# Node.js
+/node_modules/
+
+# Backend files
+/backend/node_modules/
+
+# Frontend files
+/frontend/node_modules/
+/frontend/.vite
+
+# NPM lock files 
+/frontend/package-lock.json
+/backend/package-lock.json
