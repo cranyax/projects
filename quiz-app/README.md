@@ -13,8 +13,13 @@ This is a full-stack quiz game built with a **React frontend** and an **Express 
 - **Smooth animations** using `framer-motion` for transitions and button animations.
 - **Backend API** that fetches quiz data from an external source.
 
+- #### Home
 ![Home](frontend/public/img1.png)
+
+- #### Code Explanation Video
 [![Explanation](frontend/public/explainThumbnail.png)](https://youtu.be/6EYUYdVPcEQ)
+
+- #### Working Video
 [![Working](frontend/public/img1.png)](https://youtu.be/iu7vrFfhGV0)
 
 
