@@ -8,7 +8,8 @@ const Quiz = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
-
+  
+  // Fetch quiz data when the component mounts
   useEffect(() => {
     const loadQuizData = async () => {
       try {
@@ -42,13 +43,13 @@ const Quiz = () => {
 
     const nextIndex = currentIndex + 1;
 
-  // Check if there are more questions
-  if (nextIndex < questions.length) {
-    setCurrentIndex(nextIndex);
-  } else {
-    setQuizCompleted(true);
-  }
-};
+    // Check if there are more questions
+    if (nextIndex < questions.length) {
+      setCurrentIndex(nextIndex);
+    } else {
+      setQuizCompleted(true);
+    }
+  };
 
   const restartQuiz = () => {
     setCurrentIndex(0);
@@ -68,7 +69,7 @@ const Quiz = () => {
           onAnswer={handleAnswer}
         />
       ) : (
-        <p>Loading...</p>
+        <p className="text-white text-2xl">Loading...</p>
       )}
     </div>
   );

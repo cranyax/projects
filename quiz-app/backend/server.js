@@ -11,7 +11,6 @@ app.get("/api/quiz", async (req, res) => {
     const response = await axios.get("https://api.jsonserve.com/Uw5CrX");
     res.json(response.data); // Send the quiz data as a JSON response
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Error fetching quiz data" });
   }
 });

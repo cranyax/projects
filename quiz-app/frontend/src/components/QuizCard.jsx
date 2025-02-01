@@ -61,12 +61,12 @@ const QuizCard = ({ question, options, correctAnswer, onAnswer }) => {
           <button
             key={index}
             className={`w-full py-2 px-4 rounded-lg border-2 transition duration-300 ${
-              selectedAnswer === option
+              selectedAnswer === option //Shows if the selected option is right or wrong
                 ? option === correctAnswer
                   ? "bg-green-500 text-white border-green-500"
                   : "bg-red-500 text-white border-red-500"
                 : ""
-            } ${
+            } ${ //Shows correct answer even if user selects wrong option
               showCorrect && option === correctAnswer
                 ? "bg-green-500 text-white border-green-500"
                 : "bg-gray-100 border-gray-300"

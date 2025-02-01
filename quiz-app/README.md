@@ -14,7 +14,8 @@ This is a full-stack quiz game built with a **React frontend** and an **Express 
 - **Backend API** that fetches quiz data from an external source.
 
 ![Home](frontend/public/img1.png)
-![Working](https://github.com/user-attachments/assets/c91ee04d-6745-49f0-b5cc-637233ef0a8c)
+![Explanation](https://youtu.be/6EYUYdVPcEQ)
+![Working](https://youtu.be/iu7vrFfhGV0)
 
 
 ---
